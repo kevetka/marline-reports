@@ -1,0 +1,101 @@
+% Данный файл распространяется под лицензией CC BY 4.0.
+% Текст лицензии: https://creativecommons.org/licenses/by/4.0/
+% Компиляция: XeLaTeX
+
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper, top=10mm, bottom=12mm, left=12mm, right=12mm]{geometry}
+\usepackage{polyglossia}
+\setdefaultlanguage[babelshorthands=true]{russian}
+\setotherlanguage{english}
+\usepackage{fontspec}
+\setmainfont{FreeSerif}
+\setmonofont[Scale=0.82]{DejaVu Sans Mono}
+\usepackage[tiny, compact]{titlesec}
+\usepackage{titling}
+\setlength{\droptitle}{-1.2cm}
+\pretitle{\begin{center}\begin{bfseries}\Large}
+\posttitle{\par\end{bfseries}\end{center}}
+\preauthor{\begin{center}\normalsize}
+\postauthor{\par\end{center}\vspace{-1.6cm}}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{csquotes}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+\urlstyle{same}
+
+\title{Бенчмаркинг обработки скетчей в SBC MarLine}
+\author{Шахов Андрей}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{flushright}
+    Группа: \emph{25.Б72-мм}\\
+    Кафедра: \emph{системного программирования}\\
+    Научный руководитель: \emph{Гориховский Вячеслав Игоревич}\\
+    Консультант: \emph{Дмитриевцев Алексей Сергеевич, младший инженер по разработке ПО, ООО "КНС ГРУПП"}\\
+    Номер семестра практики: \emph{3}
+\end{flushright}
+
+\section{Введение}
+
+\section{Постановка задачи}
+
+\textbf{Цель работы} --- разработать воспроизводимую методику бенчмаркинга обработки скетчей в SBC MarLine для оценки стоимости вставки и поиска в различных реализациях индекса при разных размерах базы, а также спроектировать общий интерфейс измерения задержек, применимый ко всем этапам конвейера.
+
+\textbf{Для достижения цели требуется решить следующие задачи:}
+\begin{enumerate}
+    \item Определить стадии конвейера, границы отдельных измерений, измеряемые величины и правила агрегации результатов.
+    \item Подготовить воспроизводимую тестовую нагрузку на архивах версий ядра Linux и зафиксировать параметры построения скетчей.
+    \item Разработать и проверить сценарии измерения вставки, поиска top-$k$, полного прохода по запросам и построения индекса.
+    \item Сравнить линейную, обратную и эвристическую реализации индекса при разных размерах базы; для эвристического поиска оценить качество результатов относительно полного поиска.
+    \item Спроектировать потокобезопасный интерфейс сбора задержек, пригодный для последовательной и параллельной обработки.
+    \item Предусмотреть агрегацию статистик и экспорт результатов в машиночитаемом формате.
+    \item Подготовить тесты и провести экспериментальную оценку точности и накладных расходов измерительного инструмента.
+\end{enumerate}
+
+\section{Обзор}
+
+\section{Описание решения}
+
+\section{Апробация и эксперименты}
+
+\section{Заключение}
+
+Материалы практики и исходный код: \url{https://github.com/kevetka/marline_benchmarks}.
+
+\begin{thebibliography}{9}
+    \bibitem{aronovich2009}
+    Aronovich L., Asher R., Bachmat E., Bitner H., Hirsch M., Klein S.~T.
+    \newblock The Design of a Similarity Based Deduplication System.
+    \newblock In: Proceedings of SYSTOR 2009. 2009. P.~1--14.
+    \newblock DOI: \href{https://doi.org/10.1145/1534530.1534539}{10.1145/1534530.1534539}.
+
+    \bibitem{finesse}
+    Zhang Y., Xia W., Feng D., Jiang H., Hua Y., Wang Q.
+    \newblock Finesse: Fine-Grained Feature Locality Based Fast Resemblance Detection for Post-Deduplication Delta Compression.
+    \newblock In: Proceedings of FAST 2019. 2019. P.~121--128.
+    \newblock URL: \url{https://www.usenix.org/conference/fast19/presentation/zhang}.
+
+    \bibitem{odess}
+    Zou X., Deng C., Xia W., Shilane P., Tan H., Zhang H., Wang X.
+    \newblock ODESS: Speeding up Resemblance Detection for Redundancy Elimination by Fast Content-Defined Sampling.
+    \newblock In: Proceedings of ICDE 2021. 2021. P.~480--491.
+    \newblock DOI: \href{https://doi.org/10.1109/ICDE51399.2021.00048}{10.1109/ICDE51399.2021.00048}.
+
+    \bibitem{fastcdc}
+    Xia W., Zou X., Jiang H., Zhou Y., Liu C., Feng D., Hua Y., Hu Y., Zhang Y.
+    \newblock The Design of Fast Content-Defined Chunking for Data Deduplication-Based Storage Systems.
+    \newblock IEEE Transactions on Parallel and Distributed Systems. 2020. Vol.~31, no.~9. P.~2017--2031.
+    \newblock DOI: \href{https://doi.org/10.1109/TPDS.2020.2984632}{10.1109/TPDS.2020.2984632}.
+
+    \bibitem{inverted}
+    Zobel J., Moffat A.
+    \newblock Inverted Files for Text Search Engines.
+    \newblock ACM Computing Surveys. 2006. Vol.~38, no.~2. Article~6.
+    \newblock DOI: \href{https://doi.org/10.1145/1132956.1132959}{10.1145/1132956.1132959}.
+\end{thebibliography}
+
+\end{document}
